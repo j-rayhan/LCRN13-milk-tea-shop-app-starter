@@ -2,6 +2,9 @@ import React from "react";
 import {
     Image,
     Platform,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View,
 } from "react-native";
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
 
@@ -10,8 +13,44 @@ import { COLORS, SIZES, icons } from "../constants"
 
 const Tab = createBottomTabNavigator()
 
+const CustomTabBarButton = ({containerStyle, isFloat, children, onPress}) => {
+  if (isFloat) {
+    return (
+      <View style={{
+        flex: 1,
+        alignItems: 'center',
+      }}>
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 60,
+            height: 60,
+            borderRadius: 30,
+            backgroundColor: COLORS.primary
+          }}
+          onPress={onPress}
+        >
+          {children}
+        </TouchableOpacity>
+      </View>
+    )
+  } else {
+    return (
+      <TouchableWithoutFeedback onPress={onPress}>
+        <View style={{
+          flex: 1,
+          height: 60,
+          backgroundColor: COLORS.gray3,
+          ...containerStyle
+        }}>
+          {children}
+        </View>
+      </TouchableWithoutFeedback>
+    )
+  }
+}
 const Tabs = () => {
-
     return (
         <Tab.Navigator
             tabBarOptions={{
@@ -22,7 +61,7 @@ const Tabs = () => {
                     left: 0,
                     right: 0,
                     elevation: 0,
-                    backgroundColor: COLORS.gray3,
+                    backgroundColor: "transparent",
                     borderTopColor: "transparent",
                     height: (Platform.OS == 'android') ? 60 : 80
                 }
@@ -43,6 +82,14 @@ const Tabs = () => {
                             }}
                         />
                     ),
+                    tabBarButton: props => (
+                      <CustomTabBarButton 
+                        {...props}
+                        containerStyle={{
+                          borderTopLeftRadius: SIZES.radius * 5
+                        }}
+                      />
+                    ),
                 }}
             />
             <Tab.Screen
@@ -59,6 +106,11 @@ const Tabs = () => {
                                 tintColor: focused ? COLORS.primary : COLORS.black
                             }}
                         />
+                    ),
+                    tabBarButton: props => (
+                      <CustomTabBarButton 
+                        {...props}
+                      />
                     ),
                 }}
             />
@@ -78,6 +130,12 @@ const Tabs = () => {
                             }}
                         />
                     ),
+                    tabBarButton: props => (
+                      <CustomTabBarButton 
+                        {...props}
+                        ifFloat={true}
+                      />
+                    ),
                 }}
             />
             <Tab.Screen
@@ -95,6 +153,11 @@ const Tabs = () => {
                             }}
                         />
                     ),
+                    tabBarButton: props => (
+                      <CustomTabBarButton 
+                        {...props}
+                      />
+                    ),
                 }}
             />
             <Tab.Screen
@@ -111,6 +174,14 @@ const Tabs = () => {
                                 tintColor: focused ? COLORS.primary : COLORS.black
                             }}
                         />
+                    ),
+                    tabBarButton: props => (
+                      <CustomTabBarButton 
+                        {...props}
+                        containerStyle={{
+                          borderTopRightRadius: SIZES.radius * 5
+                        }}
+                      />
                     ),
                 }}
             />
