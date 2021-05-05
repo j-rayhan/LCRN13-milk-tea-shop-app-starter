@@ -31,6 +31,7 @@ const CustomTabBarButton = ({containerStyle, isFloat, children, onPress}) => {
           }}
           onPress={onPress}
         >
+
           {children}
         </TouchableOpacity>
       </View>
@@ -86,7 +87,7 @@ const Tabs = () => {
                       <CustomTabBarButton 
                         {...props}
                         containerStyle={{
-                          borderTopLeftRadius: SIZES.radius * 5
+                          borderTopLeftRadius: SIZES.radius * 3.5
                         }}
                       />
                     ),
@@ -133,7 +134,7 @@ const Tabs = () => {
                     tabBarButton: props => (
                       <CustomTabBarButton 
                         {...props}
-                        ifFloat={true}
+                        isFloat={true}
                       />
                     ),
                 }}
@@ -179,7 +180,7 @@ const Tabs = () => {
                       <CustomTabBarButton 
                         {...props}
                         containerStyle={{
-                          borderTopRightRadius: SIZES.radius * 5
+                          borderTopRightRadius: SIZES.radius * 3.5
                         }}
                       />
                     ),
