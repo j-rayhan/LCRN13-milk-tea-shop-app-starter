@@ -67,6 +67,21 @@ const CustomTabBarButton = ({ containerStyle, isFloat, children, onPress }) => {
     )
   }
 }
+const CustomTabBar = ({props}) => {
+  return (<View>
+    <View 
+      style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 30,
+        backgroundColor: COLORS.gray3,
+      }}
+    />
+    <BottomTabBar {...props} />
+  </View>)
+}
 const Tabs = () => {
   return (
     <Tab.Navigator
@@ -83,6 +98,9 @@ const Tabs = () => {
           height: (Platform.OS == 'android') ? 60 : 80
         }
       }}
+      tabBar={props => (
+        <CustomTabBar {...{props}} />
+      )}
     >
       <Tab.Screen
         name="Home"
