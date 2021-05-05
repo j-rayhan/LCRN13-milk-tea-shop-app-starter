@@ -1,8 +1,17 @@
 import React from 'react';
 import { Image, StyleSheet, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import {connect} from 'react-redux'
 import { COLORS, icons,FONTS, SIZES } from '../constants'
-export default ({ }) => {
+import { toggleTheme } from '../stores/themeActions';
+const HeaderBar = ({ appTheme, toggleTheme }) => {
+  const handleTheme = () => {
+    if (appTheme.name === 'light') {
+      toggleTheme('dark')
+    } else {
+      toggleTheme('light')
+    }
+  }
   const toggleIcon = (name, styles) => (
     <View style={{
       width: 40,
@@ -19,6 +28,8 @@ export default ({ }) => {
         }}
       />
     </View>)
+    const lightStyle = appTheme.name === 'dark' && styles.activeLightMode
+    const nightStyle = appTheme.name === 'light' && styles.activeNightMode
   return (
     <SafeAreaView
       style={{
@@ -52,11 +63,12 @@ export default ({ }) => {
           borderRadius: 20,
           backgroundColor: COLORS.lightPurple
         }}
+        onPress={() => handleTheme()}
       >
         {/** Sun */}
-        {toggleIcon(icons.sunny)}
+        {toggleIcon(icons.sunny, lightStyle)}
         {/** Moon */}
-        {toggleIcon(icons.night, styles.activeNightMode)}
+        {toggleIcon(icons.night, nightStyle)}
       </TouchableOpacity>
     </SafeAreaView>
   )
@@ -71,4 +83,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: COLORS.yellow,
   }
-})
+});
+
+
+const mapStateToProps = ({appTheme, error}) => ({appTheme, error});
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleTheme: type => dispatch(toggleTheme(type))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderBar);
