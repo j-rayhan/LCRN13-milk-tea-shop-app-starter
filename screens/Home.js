@@ -6,10 +6,12 @@ import {
     ScrollView,
     StyleSheet
 } from 'react-native';
+import { useSelector } from 'react-redux';
 import HeaderBar from '../components/HeaderBar';
 import {COLORS, SIZES} from '../constants'
 
 const Home = ({ navigation }) => {
+  const {appTheme} = useSelector(state => state);
     return (
         <View style={styles.container}>
           <HeaderBar />
@@ -19,7 +21,7 @@ const Home = ({ navigation }) => {
               marginTop: -25,
               borderTopLeftRadius: SIZES.radius * 2,
               borderTopRightRadius: SIZES.radius * 2,
-              backgroundColor: COLORS.secondary,
+              backgroundColor: appTheme.backgroundColor,
             }}
           >
 
