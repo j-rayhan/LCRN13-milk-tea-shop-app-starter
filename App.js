@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen'
 
 import Tabs from "./navigation/tabs";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 
@@ -15,11 +16,10 @@ const App = () => {
     }, [])
 
     return (
+      <SafeAreaProvider>
         <NavigationContainer>
             <Stack.Navigator
-                screenOptions={{
-                    headerShown: false
-                }}
+                headerMode="none"
                 initialRouteName={'Home'}
             >
                 <Stack.Screen
@@ -43,6 +43,7 @@ const App = () => {
                 />
             </Stack.Navigator>
         </NavigationContainer>
+        </SafeAreaProvider>
     )
 }
 
