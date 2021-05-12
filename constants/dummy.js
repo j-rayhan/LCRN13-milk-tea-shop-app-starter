@@ -83,7 +83,7 @@ export const menuList = [
         description: "lorem ipsum dolor sit amet",
         price: "$4.50-$5.50",
         thumbnail: require("../assets/images/ice-tea.png"),
-        category: "Specialtea"
+        category: "Special Tea"
     },
     {
         id: 5,

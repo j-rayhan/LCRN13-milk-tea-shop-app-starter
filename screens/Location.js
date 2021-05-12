@@ -10,7 +10,7 @@ import {
     FlatList
 } from 'react-native';
 import { useSelector } from 'react-redux';
-import { IconButton } from "../components";
+import { AppStatusBar, IconButton } from "../components";
 import TabButton from '../components/TabButton';
 import { dummyData, COLORS, SIZES, FONTS, icons } from "../constants";
 const Location = ({ navigation }) => {
@@ -24,6 +24,7 @@ const Location = ({ navigation }) => {
           backgroundColor: COLORS.primary
         }}
       >
+        <AppStatusBar backgroundColor={COLORS.primary} />
         <View
           style={{
             flexDirection: 'row',

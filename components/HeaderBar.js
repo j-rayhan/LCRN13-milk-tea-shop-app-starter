@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, icons,FONTS, SIZES, lightTheme, darkTheme } from '../constants'
 import { toggleTheme } from '../stores/themeActions';
+import { AppStatusBar } from './AppStatusBar';
 export default ({ }) => {
   const dispatch = useDispatch();
   const {appTheme} = useSelector(state => state);
@@ -41,7 +42,7 @@ export default ({ }) => {
         flexDirection: 'row'
       }}
     >
-      <StatusBar barStyle='light-content' backgroundColor={COLORS.purple} />
+      <AppStatusBar barStyle='light-content' backgroundColor={COLORS.purple} />
       {/** Greetings */}
       <View style={{
         flex: 1,
