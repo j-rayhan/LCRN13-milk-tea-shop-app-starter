@@ -2,10 +2,8 @@ import React from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
   SafeAreaView,
-  TextInput,
   Image,
   FlatList,
   ScrollView,
