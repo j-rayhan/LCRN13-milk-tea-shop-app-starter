@@ -122,7 +122,7 @@ const Home = ({ navigation }) => {
           marginHorizontal: SIZES.padding,
           height: 100
         }}
-        onPress={() => navigation.navigation('Rewards')}
+        onPress={() => navigation.navigate('Rewards')}
       >
         {/** Rewards Cup */}
         <View
