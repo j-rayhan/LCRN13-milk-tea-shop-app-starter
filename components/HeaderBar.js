@@ -36,7 +36,7 @@ export default ({ }) => {
   return (
     <SafeAreaView
       style={{
-        height: 100,
+        height: 150,
         width: '100%',
         backgroundColor: COLORS.purple,
         flexDirection: 'row'

@@ -20,7 +20,7 @@ const Location = ({ navigation }) => {
     return (
       <SafeAreaView
         style={{
-          height: 80,
+          height: 120,
           backgroundColor: COLORS.primary
         }}
       >

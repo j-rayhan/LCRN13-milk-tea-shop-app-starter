@@ -181,7 +181,7 @@ const Order = ({ navigation, route }) => {
             <VerticalTextButton
               label="Smoothie"
               containerStyle={{
-                marginTop: 70,
+                marginTop: 60,
                 width: 100
               }}
               selected={selectedCategory === 'Smoothie'}
@@ -199,13 +199,13 @@ const Order = ({ navigation, route }) => {
             <VerticalTextButton
               label="Milk Tea"
               containerStyle={{
-                marginTop: 80,
-                width: 80
+                marginTop: 75,
+                width: 90
               }}
               selected={selectedCategory === 'Milk Tea'}
               onPress={() => setSelectedCategory('Milk Tea')}
             />
-            <View style={{ height: 100 }} />
+            <View style={{ height: 25 }} />
           </ScrollView>
         </View>
         <Svg height="65" width="65" viewBox="0 0 65 65">
