@@ -6,6 +6,13 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "adb:reverse": "adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090",
+    "adb:connect": "adb -s $DEVICE_ID reverse tcp:8081 tcp:8081",
+    "adb:menu": "adb shell input keyevent 82",
+    "adb:uninstall": "adb uninstall com.eongroup.hris",
+    "android:clean": "cd android/ && ./gradlew clean && cd ..",
+    "android:build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "android:debug": "cd android/ && ./gradlew assembleDebug && cd ..",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -14,13 +21,17 @@
     "@react-navigation/bottom-tabs": "^5.11.9",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
+    "@reduxjs/toolkit": "^1.5.1",
     "react": "17.0.1",
     "react-native": "0.64.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.1.0",
-    "react-native-splash-screen": "^3.2.0"
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-svg": "^12.1.1",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.13.15",
